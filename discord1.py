@@ -1,7 +1,12 @@
+import json
 from dis import dis
+from webbrowser import open_new
 import discord
 import asyncio
 client = discord.Client()
+
+with open('setting.json', 'r', encoding='utf8') as f:
+    jdata = json.load(f)
 
 
 @client.event
@@ -59,4 +64,4 @@ async def on_message(message):
         guilds = await client.fetch_guilds(limit=150).flatten()
         for i in guilds:
             await message.channel.send(i.name)
-client.run('ODk2MzcyMjczMjg2NjE1MDYw.YWGJuw.JxXm4nPUs6BbqWmgIXr2pPfPcAw')
+client.run(jdata['TOKEN'])
