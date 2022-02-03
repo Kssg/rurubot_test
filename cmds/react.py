@@ -11,18 +11,18 @@ with open('setting.json', 'r', encoding='utf8') as f:
 class React(Cog_Extension):
 
     @commands.command()
-    async def img(ctx):
+    async def img(self, ctx):
         pic = discord.File(jdata['pic'][0])
         await ctx.send(file=pic)
 
     @commands.command()
-    async def ranimg(ctx):
+    async def ranimg(self, ctx):
         ranimg = random.choice(jdata['pic'])
         pic = discord.File(ranimg)
         await ctx.send(file=pic)
 
     @commands.command()
-    async def urlimg(ctx):
+    async def urlimg(self, ctx):
         ranimg = random.choice(jdata['url_pic'])
         # 網址可直接傳送
         await ctx.send(ranimg)
