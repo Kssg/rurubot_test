@@ -5,10 +5,11 @@ from core.classes import Cog_Extension
 from datetime import datetime, timezone, timedelta
 
 
-# 繼承喔
+# 這樣繼承有三個
 class Main(Cog_Extension):
 
     # 下面有參數，ctx:context，(使用者、ID、伺服器、頻道)
+    # 這邊都成 commands
     @commands.command()
     async def ping(self, ctx):
         await ctx.send(f'pong! {round(self.bot.latency*1000)} (ms)')
@@ -48,10 +49,8 @@ class Main(Cog_Extension):
     async def clean(self, ctx, num: int):
         await ctx.channel.purge(limit=num+1)
 
-
-# 想想
-# setup 就長這樣，還有 Class
-
+# 註冊 Cog
+# 運行 bot 會呼叫 setup，傳入主文件的 bot
 
 def setup(bot):
     bot.add_cog(Main(bot))
