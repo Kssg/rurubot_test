@@ -23,19 +23,14 @@ class Main(Cog_Extension):
 
         dt1 = datetime.utcnow().replace(tzinfo=timezone.utc)
         dt2 = dt1.astimezone(timezone(timedelta(hours=8)))
-
-        embed = discord.Embed(title="Meow", url="https://danbooru.donmai.us/",
-                              description="meow meow~", color=0x2a61cf,
-                              timestamp=dt2)
-        embed.set_author(name="SHIRE", url="https://danbooru.donmai.us/posts/5103328",
-                         icon_url="https://cdn.donmai.us/sample/67/72/__original_drawn_by_kensight328__sample-6772160be1da5827ce163388ce3ca074.jpg")
-        embed.set_thumbnail(
-            url="https://cdn.donmai.us/sample/35/1f/__nagae_iku_touhou_drawn_by_sei_kaien_kien__sample-351fc1aadb1a8a751333ec8ab8ce52c1.jpg")
-        embed.add_field(name="1", value="11", inline=True)
-        embed.add_field(name="2", value="22", inline=True)
-        embed.add_field(name="3", value="33", inline=False)
-        embed.add_field(name="4", value="44", inline=False)
-        embed.set_footer(text="wow meow~")
+        embed=discord.Embed(title="Test", url="https://danbooru.donmai.us/", description="how to use", color=0xe31616, timestamp=dt2)
+        embed.set_author(name="SHARO", url="https://danbooru.donmai.us/posts/5389251?q=gochuumon_wa_usagi_desu_ka%3F", icon_url="https://cdn.donmai.us/original/f7/4b/__kirima_syaro_gochuumon_wa_usagi_desu_ka_drawn_by_mitya__f74b5d5d9a77e595c4405fb71344fa25.png")
+        embed.set_thumbnail(url="https://cdn.donmai.us/sample/db/71/__kirima_syaro_gochuumon_wa_usagi_desu_ka_drawn_by_mozukun43__sample-db710a75026e748d69a77a2b3509837f.jpg")
+        embed.add_field(name="保登心愛", value="ほと ここあ", inline=True)
+        embed.add_field(name="香風智乃", value="かふう ちの", inline=True)
+        embed.add_field(name="天天座理世", value="てでざ りぜ", inline=True)
+        embed.add_field(name="桐間紗路", value="きりま しゃろ", inline=True)
+        embed.set_footer(text="甭甭= =")
         await ctx.send(embed=embed)
 
     #　有好幾個 arg，就是只傳給他
@@ -47,7 +42,7 @@ class Main(Cog_Extension):
     # 原來註解是有用的，會自己轉
     @commands.command()
     async def clean(self, ctx, num: int):
-        await ctx.channel.purge(limit=num+1)
+        await ctx.channel.purge(limit=num+1) # 指令那則訊息也算一個
 
 # 註冊 Cog
 # 運行 bot 會呼叫 setup，傳入主文件的 bot
